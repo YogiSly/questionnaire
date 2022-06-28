@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Merienda';
+  outline: none;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.header {
+
+  background: #F2F2F2;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1274px;
+    padding: 8px 44px;
+    margin: auto;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.btn {
+  height: 44px;
+  border-radius: 6px;
+  color: #F2F2F2;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  padding: 8px 11px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  &-list {
+    background: #2F54EB;
+    margin-right: 8px;
+  }
+
+  &-survey {
+    background: #27AE60;
+  }
+
+  &-send {
+    background: #27AE60;
+  }
+
+  &-next {
+    background: #27AE60;
+  }
+
+  &-prev {
+    background: #2F54EB;
+    margin-right: 30px;
+  }
+}
+
+.table {
+  background: #ffffff;
+  box-shadow: 0px 2px 1px rgb(0 0 0 / 5%);
+  border-radius: 8px;
+  margin: 16px auto;
+  display: grid;
+  border: 1px solid #DDE1E6;
+  justify-content: space-between;
+  align-items: start;
+  max-width: 1274px;
+
+  &-header {
+    display: flex;
+    background: #F9FAFB;
+    border-bottom: 1px solid #DDE1E6;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+
+    &__field {
+      display: table-cell;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 28px;
+      align-items: center;
+      color: #0E0F11;
+      min-width: 318px;
+      padding: 12px;
+    }
+
+  }
+
+  &-row {
+    border-bottom: 1px solid #DDE1E6;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__field {
+      display: table-cell;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      align-items: center;
+      color: #636B75;
+      min-width: 318px;
+      padding: 12px;
+    }
+  }
+
+  &-row:last-child {
+    border-bottom: none;
+  }
+
+
+}
+
+.interview {
+  margin: 0 auto;
+
+
+}
+
+.auth {
+  &__form {
+    display: flex;
+    max-width: 320px;
+    flex-direction: column;
+    margin: 15vh auto;
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__auth {
+    background: #FFFFFF;
+    border: 1px solid #85A5FF;
+    box-shadow: 0px 1px 3px rgb(0 0 0 / 8%);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin: 0 0 20px;
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.011em;
+    color: #0E0F11;
+    margin: 0 0 3px 0;
+  }
+}
+
+.questions {
+  max-width: 1274px;
+  margin: auto;
+
+  &__block {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 16px 50px 15vh;
+    overflow-x: auto;
+  }
+
+  &__hr {
+    border: none;
+    background: #C1C9D2;
+    height: 4px;
+    border-radius: 2px;
+    width: 145px;
+  }
+
+  &__question {
+    margin-right: 4px;
+    cursor: pointer;
+  }
+
+  &__question.active .questions__hr {
+    background: #5469D4;
+  }
+
+  &__img {
+    margin-right: 8px;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #697386;
+  }
+
+  &__attr {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    margin-top: 6px;
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+  }
+
+  &__input {
+    height: 44px;
+    background: #FFFFFF;
+    border: 1px solid #DDE1E6;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    padding: 8px 12px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #2A2F45;
+  }
+
+  &__container {
+    margin: auto;
+    max-width: 1000px;
+  }
+
+  &__radio {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.breadcrumb {
+  max-width: 1274px;
+  margin: 30px auto;
+
+  &__text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: -0.011em;
+    color: #636B75;
+  }
+}

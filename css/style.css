@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Merienda';
+  outline: none;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #F2F2F2;
+  padding: 8px 120px;
+}
+
+.header__title {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.btn {
+  height: 44px;
+  border-radius: 6px;
+  color: #F2F2F2;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-list {
+  background: #2F54EB;
+  margin-right: 8px;
+}
+
+.btn-survey {
+  background: #27AE60;
+}
+/*# sourceMappingURL=style.css.map */
