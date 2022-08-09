@@ -14,7 +14,6 @@ const questions = {
       });
     },
     SET_QUESTION: (state, data) => {
-      //    console.log(data);
       state.questions.forEach((quest) => {
         quest.id == data ? quest.isActive = true : quest.isActive = false;
       });

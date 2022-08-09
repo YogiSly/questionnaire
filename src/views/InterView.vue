@@ -18,18 +18,18 @@
       </div>
       <div class="questions__container">
         <div class="questions__name" v-for="question in questions" :key="question.id" v-show="question.isActive">
-          {{question.name}}
-          <input type="text" class="questions__input" v-model="answer" @change="answerCurrent"
-            v-if="question.type == 'text'">
+          <div class="questions__quest">{{question.name}}</div>
+          <textarea type="text" class="questions__textarea" v-model="answer" @change="answerCurrent"
+            v-if="question.type == 'text'"></textarea>
           <select class="questions__input" v-else-if="question.type == 'dropdown'" v-model="answer"
             @change="answerCurrent">
             <option value="">Выберите один из вариантов</option>
-            <option v-for="variant,index in  question.variants" :key="index" :value="index">{{variant}}</option>
+            <option v-for="variant,name in  question.variants" :key="name" :value="name">{{variant}}</option>
           </select>
           <div class="questions__inner" v-else-if="question.type == 'radio'">
-            <div class="questions__radio" v-for="variant,index in  question.variants" :key="index">
-              <input type="radio" :id="index" :value="index" v-model="answer" @change="answerCurrent">
-              <label :for="index">{{ variant }}</label>
+            <div class="questions__radio" v-for="variant,name in  question.variants" :key="name">
+              <input type="radio" :id="name" :value="name" v-model="answer" @change="answerCurrent">
+              <label class="questions__variants" :for="name">{{ variant }}</label>
             </div>
           </div>
           <input type="number" class="questions__input" v-model="answer" @change="answerCurrent"
@@ -38,7 +38,7 @@
             <div class="questions__checkbox" v-for="variant,index in  question.variants" :key="index">
               <input type="checkbox" :id="`chkbx-${question.id}-${index}`" :value="variant" @change="answerChecked"
                 v-model="checkedAnswer">
-              <label :for="`chkbx-${question.id}-${index}`">{{ variant }}</label>
+              <label class="questions__variants" :for="`chkbx-${question.id}-${index}`">{{ variant }}</label>
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@
         <div class="questions__btn-block">
           <button class="btn btn-prev" @click="prevQuestion(this.activeQuestion)">Вернуться назад</button>
           <button class="btn btn-next" @click="nextQuestion(this.activeQuestion)"
-            v-if="this.activeQuestion < questions.length">Следующий</button>
+            v-if="(this.activeQuestion < questions.length)">Следующий</button>
           <button class="btn btn-next" @click="finishQuestion(this.activeQuestion)" v-else>Завершить</button>
         </div>
       </div>
@@ -70,6 +70,7 @@ export default {
       return this.$store.getters["GET_AUTH_SHOW"];
     },
     questions() {
+      // console.log(this.questions);
       return this.$store.getters["GET_QUESTIONS"];
     },
     activeQuestion() {
@@ -82,15 +83,17 @@ export default {
       return this.$store.getters["GET_USER"];
     }
   },
+
   methods:{
     answerCurrent() {
-      if (this.answer != '') {
+      if (this.answer !== '') {
         this.$store.dispatch("SET_ANSWER", { id: +this.activeQuestion, answer: this.answer });
         this.$store.dispatch("SET_DONE", this.activeQuestion);
       }
     },
     answerChecked(){
-      this.$store.dispatch("SET_ANSWER", { id: +this.activeQuestion, answer: this.answerChecked });
+
+      this.$store.dispatch("SET_ANSWER", { id: +this.activeQuestion, answer: this.checkedAnswer });
       this.$store.dispatch("SET_DONE", this.activeQuestion);
     },
     nextQuestion(id){
@@ -112,9 +115,12 @@ export default {
       }
     },
     choiseQuestion(id){
+      // console.log(this.thisAnswer);
       let curQues = this.thisAnswer.find((answ) => answ.id == +id)
+      // console.log(curQues);
       curQues != undefined ? this.answer = curQues.answer : this.answer = '';
-      this.$store.dispatch("SET_ACTIVE", id);
+      
+      this.$store.dispatch("SET_ACTIVE", +id);
       this.$store.dispatch("SET_QUESTION", id);
     },
     finishQuestion(){
@@ -134,6 +140,10 @@ export default {
       })
       .then(()=>{
         this.$router.push('/')
+        this.$store.dispatch("SET_AUTH_HIDE");
+        this.$store.dispatch("SET_ACTIVE",1);
+        this.$store.dispatch("CLEAR_ANSWER");
+        
       })
      
     }

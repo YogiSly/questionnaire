@@ -154,7 +154,8 @@ body {
     box-shadow: 0px 1px 3px rgb(0 0 0 / 8%);
     border-radius: 6px;
     padding: 8px 12px;
-    margin: 0 0 20px;
+    margin: 0;
+    width: 100%;
   }
 
   &__label {
@@ -167,11 +168,30 @@ body {
     color: #0E0F11;
     margin: 0 0 3px 0;
   }
+
+  &__block {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  &__error {
+    font-size: 12px;
+    color: red;
+    line-height: 15px;
+  }
 }
 
 .questions {
   max-width: 1274px;
   margin: auto;
+
+  &__quest {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+    margin-bottom: 20px;
+  }
 
   &__block {
     display: flex;
@@ -214,6 +234,7 @@ body {
     justify-content: flex-start;
     align-content: center;
     margin-top: 6px;
+    margin-bottom: 20px;
   }
 
   &__name {
@@ -232,6 +253,12 @@ body {
     padding: 8px 12px;
   }
 
+  &__input::-webkit-outer-spin-button,
+  &__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   &__title {
     font-weight: 500;
     font-size: 20px;
@@ -247,6 +274,28 @@ body {
   &__radio {
     font-size: 16px;
     font-weight: 400;
+  }
+
+  &__variants {
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 8px;
+    line-height: 18px;
+    cursor: pointer;
+  }
+
+  &__btn-block {
+    margin-top: 30px;
+  }
+
+  &__textarea {
+    background: #FFFFFF;
+    border: 1px solid #DDE1E6;
+    box-shadow: 0px 1px 3px rgb(0 0 0 / 8%);
+    border-radius: 6px;
+    padding: 8px 12px;
+    width: 100%;
+    resize: none;
   }
 }
 

@@ -6,7 +6,7 @@
       <div class="table-header__field">Phone</div>
       <div class="table-header__field">Result</div>
     </div>
-    <div class="table-row" v-for="user in users.slice().reverse()" :key=" user.id">
+    <div class="table-row" v-for="user in users.slice().reverse()" :key="user.id" @click="onEmmit(user.id)">
       <div class="table-row__field">{{ user.name }}</div>
       <div class="table-row__field">{{ user.mail }}</div>
       <div class="table-row__field">{{ user.phone }}</div>
@@ -20,6 +20,12 @@ export default {
     users() {
       return this.$store.getters["GET_USERS"];
     }
+  },
+  methods: {
+    onEmmit(id) {
+      
+      this.$emit("onNavigate", id);
+    },
   },
   mounted() {
     this.$store.dispatch("LOAD_USERS");
