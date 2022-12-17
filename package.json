@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "server": "json-server --watch db.json",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -12,6 +13,8 @@
     "@vuelidate/validators": "^2.0.0-alpha.29",
     "axios": "^0.27.2",
     "core-js": "^3.6.5",
+    "D": "^1.0.0",
+    "json-server": "^0.17.1",
     "v-mask": "^2.3.0",
     "vue": "^3.0.0",
     "vue-axios": "^3.4.1",
